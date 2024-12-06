@@ -3,15 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "open-report": "node open-report.js",
+    "test-and-open": "npm run test && npm run open-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.49.0",
-    "@types/node": "^22.10.1"
+    "@types/node": "^22.10.1",
+    "allure-playwright": "^3.0.7"
   },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "open": "^10.1.0"
   }
 }
