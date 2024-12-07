@@ -13,11 +13,15 @@ class BasePage {
     }
 
     async type(selector, value) {
-        await this.page.locator(selector).fill(value);
+        await this.page.fill(selector, value);
     }
 
     async getText(selector) {
-        await this.page.waitForSelector(selector).textContent();
+        return await this.page.locator(selector).textContent();
+    }
+
+    async waitForSelector(selector) {
+        await this.page.waitForSelector(selector);
     }
 }
 module.exports = BasePage;
