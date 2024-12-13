@@ -18,6 +18,7 @@ class BasePage {
         if (!url || typeof url !== "string") {
             throw new Error("Invalid URL provided.");
         }
+        console.log(`Navigating to ${url} to ${options.waitUntil} ruhin`);
         await this.page.goto(url, options);
     }
 
