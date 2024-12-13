@@ -6,13 +6,15 @@
   "scripts": {
     "test": "playwright test",
     "open-report": "node open-report.js",
-    "test-and-open": "npm run test && npm run open-report"
+    "test-and-open": "npm run test && npm run open-report",
+    "test-ct": "playwright test --project=Component Tests"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^9.3.0",
+    "@playwright/experimental-ct-react": "^1.49.1",
     "@playwright/test": "^1.49.0",
     "@types/node": "^22.10.1",
     "allure-playwright": "^3.0.7"
