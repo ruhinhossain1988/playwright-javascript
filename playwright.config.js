@@ -30,7 +30,7 @@ module.exports = defineConfig({
   use: {
     headless: false,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://13.229.20.77:6100',
+    baseURL: 'https://www.saucedemo.com',
 
     /*contextOptions: {
       slowMo: 0,
