@@ -9,6 +9,14 @@ class LoginPage extends BasePage {
         this.loginbutton = "#login-button";
     }
 
+    getPageId() {
+        return "LoginPage";
+    }
+
+    getUrl() {
+        return "/login";
+    }
+
     async fillUsernameField(username){
         await this.type(this.usernameField, username);
     }
@@ -20,6 +28,8 @@ class LoginPage extends BasePage {
     async clickOnLoginButton(){
         await this.click(this.loginbutton);
     }
+
+
     async login(username, password) {
         await this.fillUsernameField(username);
         await this.fillPasswordField(password);
