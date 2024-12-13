@@ -2,7 +2,7 @@ require('dotenv').config();
 const {test, expect} = require('@playwright/test');
 const SignInPage = require('../src/pages/signInPage');
 
-const {EMAIL, PASS} = process.env;
+const {FT_EMAIL, FT_PASS} = process.env;
 
 test.describe("SignIn Test", () => {
     test('Sign in test', {
@@ -18,9 +18,9 @@ test.describe("SignIn Test", () => {
 
         await signInPage
             .clickEmailAddressButton()
-            .then(() => signInPage.fillEmailAddressField(EMAIL))
+            .then(() => signInPage.fillEmailAddressField(FT_EMAIL))
             .then(() => signInPage.clickSignInWithPasswordButton())
-            .then(() => signInPage.fillPasswordField(PASS))
+            .then(() => signInPage.fillPasswordField(FT_PASS))
             .then(() => signInPage.clickSignInButton())
             .catch((error) => {
                 console.error('Error during sign-in:', error);
