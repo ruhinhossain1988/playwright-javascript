@@ -5,13 +5,16 @@ const LoginPage = require('../pages/login.page');
 const {SAUCE_USER, SAUCE_PASS} = process.env;
 
 test.describe("Login Test", () => {
+    let loginPage;
+
+    test.beforeEach(async ({page}) => {
+        loginPage = new LoginPage(page);
+        await loginPage.navigateTo("/", {waitUntil: 'networkidle'});
+    });
+
     test('Login test', {
         tag: '@fast'
     }, async ({page}) => {
-        const loginPage = new LoginPage(page);
-
-        //console.log('Navigating to /login');
-        await loginPage.navigateTo("/", {waitUntil: 'networkidle'});
 
         console.log('Performing log-in');
         //await signInPage.signIn(EMAIL, PASS);

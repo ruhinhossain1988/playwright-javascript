@@ -27,9 +27,9 @@ module.exports = defineConfig({
   ],*/
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless: false,
+    headless: true,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://www.saucedemo.com',
+    baseURL: 'http://13.229.20.77:6100',
 
     /*contextOptions: {
       slowMo: 0,
