@@ -1,33 +1,27 @@
 require('dotenv').config();
 const {test, expect} = require('@playwright/test');
-const SignInPage = require('../src/pages/signInPage');
+const LoginPage = require('../src/pages/login.page');
 
-const {EMAIL, PASS} = process.env;
+const {SAUCE_USER, SAUCE_PASS} = process.env;
 
-test.describe("SignIn Test", () => {
-    test('Sign in test', {
+test.describe("Login Test", () => {
+    test('Login test', {
         tag: '@fast'
     }, async ({page}) => {
-        const signInPage = new SignInPage(page);
+        const loginPage = new LoginPage(page);
 
-        console.log('Navigating to /signin');
-        await signInPage.navigateTo("/signin", {waitUntil: 'networkidle'});
+        console.log('Navigating to /login');
+        await loginPage.navigateTo("/", {waitUntil: 'networkidle'});
 
-        console.log('Performing sign-in');
+        console.log('Performing log-in');
         //await signInPage.signIn(EMAIL, PASS);
 
-        await signInPage
-            .clickEmailAddressButton()
-            .then(() => signInPage.fillEmailAddressField(EMAIL))
-            .then(() => signInPage.clickSignInWithPasswordButton())
-            .then(() => signInPage.fillPasswordField(PASS))
-            .then(() => signInPage.clickSignInButton())
-            .catch((error) => {
-                console.error('Error during sign-in:', error);
-                throw error;
-            });
+        /*await loginPage.fillUsernameField("standard_user");
+        await loginPage.fillPasswordField("secret_sauce");
+        await loginPage.clickOnLoginButton();*/
 
-        console.log('Validating sign-in success');
-       // await expect(page.locator('h1')).toHaveText('Welcome Back');
+        await loginPage.login(SAUCE_USER, SAUCE_PASS);
+
+        expect(page.url()).toEqual('https://www.saucedemo.com/inventory.html');
     });
 });

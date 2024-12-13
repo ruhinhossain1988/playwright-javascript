@@ -1,5 +1,4 @@
 class BasePage {
-
     /**
      * Represents the Playwright Page instance
      */
@@ -43,7 +42,7 @@ class BasePage {
             throw new Error("Invalid value provided...");
         }
         await this.waitForSelector(selector);
-        await this.page.goto(selector, value);
+        await this.page.fill(selector, value);
     }
 
     /**

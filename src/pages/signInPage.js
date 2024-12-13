@@ -20,8 +20,9 @@ class SignInPage extends BasePage {
 
     async fillEmailAddressField(email) {
         console.log('Attempting to fill email address field');
-        await this.page.locator(this.emailAddressField).waitFor({ state: 'visible' });
-        await this.page.locator(this.emailAddressField).fill(email);
+        /*await this.page.locator(this.emailAddressField).waitFor({ state: 'visible' });
+        await this.page.locator(this.emailAddressField).fill(email);*/
+        await this.type(this.emailAddressField, email);
         console.log('Filled email address field');
         return this; // Enable chaining
     }
