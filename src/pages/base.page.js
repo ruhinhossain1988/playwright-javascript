@@ -57,6 +57,17 @@ class BasePage {
     }
 
     /**
+     * Retrieves the text content from an element specified by the selector.
+     * @async
+     * @param {string} selector - The CSS selector of the element to check.
+     * @returns {Promise<boolean>} - A promise that resolves to `true` if the element is disabled, otherwise `false`.
+     */
+    async isDisabled(selector) {
+        await this.waitForSelector(selector);
+        return this.page.isDisabled(selector);
+    }
+
+    /**
      * Waits for an element specified by the selector to be visible.
      * @param {string} selector - The CSS selector of the element to wait for.
      */
@@ -123,7 +134,6 @@ class BasePage {
     async isAtPage() {
         return this.isPage(this.getPageId());
     }
-
 }
 
 module.exports = BasePage;

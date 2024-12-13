@@ -1,6 +1,6 @@
 require('dotenv').config();
 const {test, expect} = require('@playwright/test');
-const SignInPage = require('../src/pages/signInPage');
+const SignInPage = require('../pages/signInPage');
 
 const {FT_EMAIL, FT_PASS} = process.env;
 

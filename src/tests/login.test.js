@@ -1,6 +1,6 @@
 require('dotenv').config();
 const {test, expect} = require('@playwright/test');
-const LoginPage = require('../src/pages/login.page');
+const LoginPage = require('../pages/login.page');
 
 const {SAUCE_USER, SAUCE_PASS} = process.env;
 
