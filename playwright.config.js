@@ -21,18 +21,20 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
+  reporter: "html",
+
+      /*[
     ['allure-playwright'],
-  ],
+  ],*/
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     headless: false,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'http://13.229.20.77:6100',
 
-    contextOptions: {
-      slowMo: 5000,
-    },
+    /*contextOptions: {
+      slowMo: 0,
+    },*/
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -47,11 +49,15 @@ module.exports = defineConfig({
     },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
+    {
+       name: 'Mobile Chrome',
+       use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'] },
+    },
+    /* {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
     // },
