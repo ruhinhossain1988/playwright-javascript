@@ -50,7 +50,7 @@ class FlightPage extends BasePage {
     }
 
     async selectDepartureDate(departureDate) {
-        await this.click(departureDate);  // need to update later
+        await this.click(departureDate);  // need to be updated later
     }
 
     async clickReturnDate() {
@@ -76,6 +76,6 @@ class FlightPage extends BasePage {
     async isSearchButtonDisabled() {
         return this.isDisabled(this.searchButton);
     }
-
 }
-exports.module = FlightPage;
+
+module.exports = FlightPage;
